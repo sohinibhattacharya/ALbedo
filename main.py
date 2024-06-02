@@ -3,9 +3,9 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
-# from ALchemy import PretrainedModel
-from ALchemy import Sampling
-# from ALchemy import Classification
+# from ALbedo import PretrainedModel
+from ALbedo import Sampling
+# from ALbedo import Classification
 from os import path
 
 

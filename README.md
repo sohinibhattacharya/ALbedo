@@ -1,7 +1,7 @@
 
-<h1 align="center">ALchemy 🎈</h1>
+<h1 align="center">ALbedo ⚛️</h1>
 <p>
-  <a href="https://pypi.org/project/ALchemy/0.6896/" target="_blank">
+  <a href="https://pypi.org/project/ALbedo/0.6896/" target="_blank">
   </a>
 </p>
 
@@ -9,11 +9,6 @@
 
 <h4 align="center">
 A Python library meant to simplify your life by providing you with popular active-learning sampling methods on image classification. You can train your models from scratch by tweaking a few values. Or if you want to try out pre-trained model like ResNet50, EfficientNetVB6, VGG19, etc., don't worry! This library has got you covered. From Bayesian optimization for least and high-confidence parameter tuning to margin sampling, you can try it out with just one simple command.
-</h4>
-
-
-<h4 align="center">
-Along with that, for simple bridging of NLP with Image Classification and utilization of basic use-cases of NLP frameworks, we have context-deciders, HTML parsers and simple chatbot object classes to create an interface similar to Google Lens. You input an image or item you are curious about, and you can ask one-on-one questions from the chatbot. You can use speech-to-text or translate image text into your desired language. This is made possible by using the tiny imagenet dataset.
 </h4>
 
 <h4 align="center">____________________________________________________________________________</h4>
@@ -25,7 +20,7 @@ Along with that, for simple bridging of NLP with Image Classification and utiliz
 </dl>
 
 ```
-pip install ALchemy
+pip install ALbedo
 ```
 
 
@@ -36,7 +31,7 @@ pip install ALchemy
 </dl>
 
 ```python
-from ALchemy import Classification
+from ALbedo import Classification
 
 classifier=Classification(validation_split=0.4,early_stopping_patience=20)
 ```
@@ -46,7 +41,7 @@ classifier=Classification(validation_split=0.4,early_stopping_patience=20)
 </dl>
 
 ```python
-from ALchemy import Sampling
+from ALbedo import Sampling
 
 sampling=Sampling("mixedbayes","cifar10",first_data_samples=5000)
 sampling.initial_training()
@@ -74,42 +69,11 @@ If you intend to use a file to input the parameters for the model sampling, this
 </dl>
 
 ```python
-from ALchemy import PretrainedModel
+from ALbedo import PretrainedModel
 
 pretrained=PretrainedModel(model_type="resnet50", dataset="cifar10", samplingtype="leastconfidence")
 model=pretrained.get_model()
 ```
-
-<h4 align="center">____________________________________________________________________________</h4>
-
-
-<h4>More Examples on NLP use-cases:</h4>
-
-<dl>
-  <dt><span style="color:#FFC0CB">If you want your predicted class(es) of the input image to be used as the context for your chatbot, simply run, and input the image path, </span>
-</dl>
-
-```python
-from ALchemy import ContextDecider
-
-decider=ContextDecider(user_input=True)
-list_of_context_words=decider.decide_context()
-```
-or, just let it choose a random image for you! And ask questions.
-
-```python
-from ALchemy import HTMLparser
-from ALchemy import QuestionAnswer
-
-parser=HTMLparser(list_of_context_words)
-text=parser.get_context_text()
-
-qa=QuestionAnswer(text,"roberta")
-qa.ask()
-```
-Getting the text content based on the context words predicted by the model and asking subsequent questions on it.
-
-
 
 <h4 align="center">____________________________________________________________________________</h4>
 
